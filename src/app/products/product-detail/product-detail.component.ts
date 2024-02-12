@@ -9,10 +9,10 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 })
 export class ProductDetailComponent {
   @Input() name = ''
-  @Output() bought = new EventEmitter();
+  @Output() bought = new EventEmitter<string>();
 
   buy(){
-    this.bought.emit();
+    this.bought.emit(this.name);
   }
 }
 
