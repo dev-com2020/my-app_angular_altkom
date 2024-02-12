@@ -1,6 +1,14 @@
-<!-- <div *ngIf="name"> -->
-<div [hidden]="!name">
+<div *ngIf="name">
 <h2>Product Details</h2>
 <h3>{{ name }}</h3>
+<div [ngSwitch]="name">
+<p *ngSwitchCase="'Webcam'">
+    Produkt klasy premium
+</p>
+<p *ngSwitchCase="'Keyboard'">
+    Świetna klawiatura
+</p>
+<p *ngSwitchDefault>Inny produkt...</p>
+</div>
 <button (click)="buy()">Kup teraz</button>
 </div>
