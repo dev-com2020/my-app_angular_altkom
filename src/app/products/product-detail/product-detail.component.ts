@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-product-detail',
@@ -6,14 +6,20 @@ import { Component, Input, Output, EventEmitter, ViewEncapsulation } from '@angu
   imports: [],
   templateUrl: './product-detail.component.html',
   styleUrl: './product-detail.component.css',
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProductDetailComponent {
   @Input() name = ''
   @Output() bought = new EventEmitter<string>();
 
-  buy(){
+  buy() {
     this.bought.emit(this.name);
+  }
+
+  get productName(): string {
+    console.log(`Get ${this.name}`)
+    return this.name
   }
 }
 
