@@ -1,0 +1,8 @@
+<h2>Product List</h2>
+<ul>
+    <li (click)="selectedProduct = 'Webcam'">Kamera internetowa</li>
+    <li (click)="selectedProduct = 'Microphone'">Mikrofon</li>
+    <li (click)="selectedProduct = 'Keyboard'">Klawiatura</li>
+</ul>
+<br>
+<app-product-detail [name]="selectedProduct"></app-product-detail>
