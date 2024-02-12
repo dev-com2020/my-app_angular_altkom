@@ -11,6 +11,8 @@ import { CommonModule } from '@angular/common';
 })
 export class ProductListComponent {
   selectedProduct = ''
+  products = ['Webcam', 'Microphone', 'Keyboard']
+
   onBuy(name: string){
     window.alert(`Zakupiłeś ${name}`)
   }

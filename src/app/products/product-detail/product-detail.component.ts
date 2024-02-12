@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import {
   Component, Input, Output, EventEmitter, ViewEncapsulation,
   ChangeDetectionStrategy, OnInit, OnChanges, SimpleChange,
@@ -7,7 +8,7 @@ import {
 @Component({
   selector: 'app-product-detail',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './product-detail.component.html',
   styleUrl: './product-detail.component.css',
   encapsulation: ViewEncapsulation.None,
