@@ -5,4 +5,7 @@
     <li (click)="selectedProduct = 'Keyboard'">Klawiatura</li>
 </ul>
 <br>
-<app-product-detail [name]="selectedProduct" (bought)="onBuy($event)"></app-product-detail>
+<app-product-detail #product [name]="selectedProduct" (bought)="onBuy($event)">
+</app-product-detail>
+
+<!-- <h5>{{product.name}}</h5> -->
