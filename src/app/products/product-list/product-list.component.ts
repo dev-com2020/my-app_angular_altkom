@@ -9,7 +9,7 @@ import { ProductDetailComponent } from '../product-detail/product-detail.compone
   styleUrl: './product-list.component.css'
 })
 export class ProductListComponent {
-  selectedProduct = ''
+  selectedProduct = 'Keyboard'
   onBuy(name: string){
     window.alert(`Zakupiłeś ${name}`)
   }
