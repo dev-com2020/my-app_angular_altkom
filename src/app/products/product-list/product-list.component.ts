@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { ProductDetailComponent } from '../product-detail/product-detail.component';
 import { CommonModule } from '@angular/common';
 import { Product } from '../product';
+import { SortPipe } from '../sort.pipe';
 
 @Component({
   selector: 'app-product-list',
   standalone: true,
-  imports: [ProductDetailComponent, CommonModule],
+  imports: [ProductDetailComponent, CommonModule, SortPipe],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.css'
 })
@@ -25,6 +26,10 @@ export class ProductListComponent {
     {
       name: 'Keyboard',
       price: 85
+    },
+    {
+      name: 'Arbuz',
+      price: 5
     }
   ]
 
