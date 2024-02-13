@@ -1,7 +1,8 @@
-<div *ngIf="product?.name">
+<div *ngIf="product$ | async as product">
 <h2>Product Details</h2>
-<h3>{{ product?.name }}</h3>
-<div [ngSwitch]="product?.name">
+<h3>{{ product.name }}</h3>
+<span>{{product.price}}</span><br>
+<!-- <div [ngSwitch]="product?.name">
 <p *ngSwitchCase="'Webcam'">
     Produkt klasy premium
 </p>
@@ -9,6 +10,6 @@
     Świetna klawiatura
 </p>
 <p *ngSwitchDefault>Inny produkt...</p>
-</div>
+</div> -->
 <button (click)="buy()">Kup teraz</button>
 </div>
