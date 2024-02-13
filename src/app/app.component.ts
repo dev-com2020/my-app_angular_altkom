@@ -2,12 +2,13 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ProductListComponent } from './products/product-list/product-list.component';
 import { CopyrightDirective } from './copyright.directive';
+import { NumericDirective } from './numeric.directive';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ProductListComponent, CopyrightDirective],
+  imports: [RouterOutlet, ProductListComponent, CopyrightDirective, NumericDirective],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
