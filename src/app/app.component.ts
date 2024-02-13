@@ -5,13 +5,14 @@ import { CopyrightDirective } from './copyright.directive';
 import { NumericDirective } from './numeric.directive';
 import { Observable, from, of } from 'rxjs';
 import { KeyLoggerComponent } from './key-logger/key-logger.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, ProductListComponent, 
-    CopyrightDirective, NumericDirective, KeyLoggerComponent],
+    CopyrightDirective, NumericDirective, KeyLoggerComponent, HttpClientModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
