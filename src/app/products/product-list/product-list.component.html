@@ -1,6 +1,6 @@
 <h2>Product List</h2>
 <ul>
-    <li *ngFor="let product of products; let i=index" (click)="selectedProduct = product">
+    <li *ngFor="let product of (products$ | async); let i=index" (click)="selectedProduct = product">
        <!-- {{i+1}} - {{product | json}}<br>
     {{ product.price | currency: 'PLN'}}</li> -->
     <app-product-view [id] = 'i'></app-product-view>

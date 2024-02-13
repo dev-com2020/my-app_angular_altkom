@@ -6,7 +6,7 @@ import { SortPipe } from '../sort.pipe';
 import { ProductsService } from '../products.service';
 import { FavoritesComponent } from '../favorites/favorites.component';
 import { ProductViewComponent } from '../product-view/product-view.component';
-import { Subscription } from 'rxjs';
+import { Subscription, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-product-list',
@@ -17,26 +17,20 @@ import { Subscription } from 'rxjs';
   styleUrl: './product-list.component.css',
   providers: [ProductsService]
 })
-export class ProductListComponent implements OnInit, OnDestroy {
+export class ProductListComponent implements OnInit {
   today = new Date();
-  private productsSub: Subscription | undefined
+  // private productsSub: Subscription | undefined
   selectedProduct: Product | undefined
-  products: Product[] = []
+  products$: Observable<Product[]> | undefined
   
   constructor(private productService: ProductsService){}
 
   private getProducts(){
-    this.productsSub = this.productService.getProducts().subscribe(products => {
-      this.products = products
-    })
+    this.products$ = this.productService.getProducts()
   }
 
   ngOnInit(): void {
       this.getProducts()
-  }
-
-  ngOnDestroy(): void {
-      this.productsSub?.unsubscribe()
   }
   
 
