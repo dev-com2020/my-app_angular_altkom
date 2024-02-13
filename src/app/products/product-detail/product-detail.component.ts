@@ -51,5 +51,12 @@ export class ProductDetailComponent implements OnInit, OnChanges {
     console.log(`Get ${this.product?.name}`)
     return this.product?.name
   }
+
+  changePrice(product: Product, price: number){
+    this.productService.updateProduct(product.id,price).subscribe(()=>{
+      alert(`Cena produktu ${product.name} została zmieniona`)
+    }
+    )
+  }
 }
 

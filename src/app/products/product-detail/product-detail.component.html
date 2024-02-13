@@ -2,6 +2,8 @@
 <h2>Product Details</h2>
 <h3>{{ product.name }}</h3>
 <span>{{product.price}}</span><br>
+<input placeholder="Nowa cena" #price/>
+<button (click)="changePrice(product,price.valueAsNumber)">Zmień cene</button>
 <!-- <div [ngSwitch]="product?.name">
 <p *ngSwitchCase="'Webcam'">
     Produkt klasy premium
@@ -11,5 +13,5 @@
 </p>
 <p *ngSwitchDefault>Inny produkt...</p>
 </div> -->
-<button (click)="buy()">Kup teraz</button>
+<p><button (click)="buy()">Kup teraz</button></p>
 </div>
