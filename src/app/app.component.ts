@@ -3,7 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { ProductListComponent } from './products/product-list/product-list.component';
 import { CopyrightDirective } from './copyright.directive';
 import { NumericDirective } from './numeric.directive';
-import { Observable } from 'rxjs';
+import { Observable, from, of } from 'rxjs';
 import { KeyLoggerComponent } from './key-logger/key-logger.component';
 
 
@@ -17,6 +17,8 @@ import { KeyLoggerComponent } from './key-logger/key-logger.component';
 })
 export class AppComponent {
   title = ''
+  // const values = from([1,2,3]);
+  // values.subscribe(value => console.log(value));
 
   title$ = new Observable(observer => {
     setInterval(() => {
@@ -24,7 +26,9 @@ export class AppComponent {
     }, 2000);
   })
 
+
   constructor(){
+    const complete$ = from(this.onComplete())
     this.title$.subscribe(this.setTitle)
   }
 
@@ -46,6 +50,8 @@ export class AppComponent {
       callback()
     }, 2000);
   }
+
+
 }
 
 // type Animal = 'Żyrafa' | "Słoń";
