@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ProductDetailComponent } from '../product-detail/product-detail.component';
 import { CommonModule } from '@angular/common';
 import { Product } from '../product';
 import { SortPipe } from '../sort.pipe';
+import { ProductsService } from '../products.service';
 
 @Component({
   selector: 'app-product-list',
@@ -11,27 +12,16 @@ import { SortPipe } from '../sort.pipe';
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.css'
 })
-export class ProductListComponent {
+export class ProductListComponent implements OnInit {
   today = new Date();
   selectedProduct: Product | undefined
-  products: Product[] = [
-    {
-      name: 'Webcam',
-      price: 100,
-    },
-    {
-      name: 'Microphone',
-      price: 200,
-    },
-    {
-      name: 'Keyboard',
-      price: 85
-    },
-    {
-      name: 'Arbuz',
-      price: 5
-    }
-  ]
+  products: Product[] = []
+  
+  constructor(private productService: ProductsService){}
+
+  ngOnInit(): void {
+      this.products = this.productService.getProducts()
+  }
 
   onBuy(name: string) {
     window.alert(`Zakupiłeś ${name}`)
