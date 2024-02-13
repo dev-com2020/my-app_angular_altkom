@@ -3,18 +3,49 @@ import { RouterOutlet } from '@angular/router';
 import { ProductListComponent } from './products/product-list/product-list.component';
 import { CopyrightDirective } from './copyright.directive';
 import { NumericDirective } from './numeric.directive';
+import { Observable } from 'rxjs';
+import { KeyLoggerComponent } from './key-logger/key-logger.component';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ProductListComponent, CopyrightDirective, NumericDirective],
+  imports: [RouterOutlet, ProductListComponent, 
+    CopyrightDirective, NumericDirective, KeyLoggerComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'Altkom';
-  opis2 = 'kurs Angular';
+  title = ''
+
+  title$ = new Observable(observer => {
+    setInterval(() => {
+      observer.next()
+    }, 2000);
+  })
+
+  constructor(){
+    this.title$.subscribe(this.setTitle)
+  }
+
+  private onComplete(){
+    return new Promise<void>(resolve =>{
+      setTimeout(() => {
+        resolve()
+      }, 2000);
+    })
+  }
+
+  private setTitle = () => {
+    const timestamp = new Date().getMilliseconds()
+    this.title = `Kurs Angulara w Altkom (${timestamp})`
+  }
+
+  private changeTitle(callback: Function){
+    setTimeout(() => {
+      callback()
+    }, 2000);
+  }
 }
 
 // type Animal = 'Żyrafa' | "Słoń";
