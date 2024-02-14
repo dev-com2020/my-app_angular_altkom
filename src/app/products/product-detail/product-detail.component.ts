@@ -10,12 +10,13 @@ import { ProductsService } from '../products.service';
 import { AuthComponent } from '../../auth/auth/auth.component';
 import { AuthService } from '../../auth/auth.service';
 import { ActivatedRoute } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 
 @Component({
   selector: 'app-product-detail',
   standalone: true,
-  imports: [CommonModule, AuthComponent],
+  imports: [CommonModule, AuthComponent, FormsModule],
   templateUrl: './product-detail.component.html',
   styleUrl: './product-detail.component.css',
   // encapsulation: ViewEncapsulation.None,
@@ -27,6 +28,7 @@ export class ProductDetailComponent implements OnInit, OnChanges {
   @Input() product: Product | undefined
   @Output() bought = new EventEmitter<string>();
   product$: Observable<Product> | undefined
+  price: number | undefined
 
   constructor(private productService: ProductsService,private route: ActivatedRoute) {
     // console.log(`Name is ${this.product?.name} in the constructor`)
@@ -45,7 +47,7 @@ export class ProductDetailComponent implements OnInit, OnChanges {
     //   const oldValue = product.previousValue.name
     //   const newValue = product.currentValue.name
     //   console.log(`Product change from ${oldValue} to ${newValue}`)
-    const id = this.route.snapshot.params['id']
+    // const id = this.route.snapshot.params['id']
     this.product$ = this.productService.getProduct(this.id)
     }
   

@@ -2,8 +2,10 @@
 <h2>Product Details</h2>
 <h3>{{ product.name }}</h3>
 <span>{{product.price}}</span><br>
-<input placeholder="Nowa cena" #price/>
-<button (click)="changePrice(product,price.valueAsNumber)">Zmień cene</button>
+<form (ngSubmit)="changePrice(product,price!)">
+<input placeholder="Nowa cena" name="price" [(ngModel)]="price"/>
+<button type="submit">Zmień cene</button>
+</form>
 <!-- <div [ngSwitch]="product?.name">
 <p *ngSwitchCase="'Webcam'">
     Produkt klasy premium

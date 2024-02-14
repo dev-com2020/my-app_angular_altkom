@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { SortPipe } from './sort.pipe';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -12,7 +13,9 @@ import { SortPipe } from './sort.pipe';
     CommonModule,
     ProductListComponent,
     ProductDetailComponent,
-    SortPipe
+    SortPipe,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     ProductListComponent
