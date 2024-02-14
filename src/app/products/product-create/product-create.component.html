@@ -10,6 +10,8 @@
     <input id="price" formControlName="price" required/>
     <span *ngIf="price.touched && price.hasError('outOfRange')">
     Cena nie mieści się w zasięgu</span>
+    <span *ngIf="showPriceRangeHint">
+    Cena nie mieści się w zasięgu</span>
 </div>
 <div>
     <button type="submit">Stwórz</button>
