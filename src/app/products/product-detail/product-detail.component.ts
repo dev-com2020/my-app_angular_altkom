@@ -5,7 +5,7 @@ import {
   SimpleChanges
 } from '@angular/core';
 import { Product } from '../product';
-import { Observable, switchMap } from 'rxjs';
+import { Observable, of, switchMap } from 'rxjs';
 import { ProductsService } from '../products.service';
 import { AuthComponent } from '../../auth/auth/auth.component';
 import { AuthService } from '../../auth/auth.service';
@@ -34,11 +34,9 @@ export class ProductDetailComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     // console.log(`Name is ${this.product?.name} in the ngOnInit`)
-    this.product$ = this.route.paramMap.pipe(
-      switchMap(params => {
-        return this.productService.getProduct(Number(params.get('id')))
-      })
-    )
+    this.product$ = this.route.data.pipe(
+      switchMap(data => of(data['product']))
+      )
   }
 
   ngOnChanges(): void {
@@ -47,6 +45,7 @@ export class ProductDetailComponent implements OnInit, OnChanges {
     //   const oldValue = product.previousValue.name
     //   const newValue = product.currentValue.name
     //   console.log(`Product change from ${oldValue} to ${newValue}`)
+    const id = this.route.snapshot.params['id']
     this.product$ = this.productService.getProduct(this.id)
     }
   
