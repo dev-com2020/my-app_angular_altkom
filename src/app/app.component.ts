@@ -7,6 +7,7 @@ import { Observable, from, of } from 'rxjs';
 import { KeyLoggerComponent } from './key-logger/key-logger.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthComponent } from './auth/auth/auth.component';
+import { environment } from '../environment.staging';
 
 
 @Component({
@@ -19,6 +20,8 @@ import { AuthComponent } from './auth/auth/auth.component';
 })
 export class AppComponent {
   title = ''
+  apiUrl = environment.apiUrl
+  
   // const values = from([1,2,3]);
   // values.subscribe(value => console.log(value));
 

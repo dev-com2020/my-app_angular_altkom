@@ -61,10 +61,12 @@
             },
             "development": {
               "buildTarget": "my-app:build:development"
-            }
-          },
+            },
+          
           "defaultConfiguration": "development"
+          }
         },
+      
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
@@ -88,6 +90,9 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }
@@ -96,3 +101,4 @@
     "analytics": false
   }
 }
+
