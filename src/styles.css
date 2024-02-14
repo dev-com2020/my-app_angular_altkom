@@ -41,3 +41,7 @@ a:hover {
 .active {
     color: brown;
 }
+
+input.ng-touched {
+    border: 3px solid lightblue;
+}

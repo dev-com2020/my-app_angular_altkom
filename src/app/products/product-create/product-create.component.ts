@@ -2,11 +2,13 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { Product } from '../product';
 import { ProductsService } from '../products.service';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { priceRangeValidator } from '../price-range.directive';
 
 @Component({
   selector: 'app-product-create',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './product-create.component.html',
   styleUrl: './product-create.component.css'
 })
@@ -21,7 +23,7 @@ export class ProductCreateComponent {
     }),
     price: new FormControl<number | undefined>(undefined, {
       nonNullable: true,
-      validators: [Validators.required]
+      validators: [Validators.required, priceRangeValidator]
     })
   })
 

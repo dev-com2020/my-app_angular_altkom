@@ -1,11 +1,15 @@
 <form [formGroup]="productForm" (ngSubmit)="createProduct()">
 <div>
     <label for="name">Nazwa:</label>
-    <input id="name" formControlName="name"/>
+    <input id="name" formControlName="name" required/>
+    <span *ngIf="name.touched && name.invalid">
+    Nazwa jest nieprawidłowa</span>
 </div>
 <div>
     <label for="price">Cena:</label>
-    <input id="price" formControlName="price"/>
+    <input id="price" formControlName="price" required/>
+    <span *ngIf="price.touched && price.hasError('outOfRange')">
+    Cena nie mieści się w zasięgu</span>
 </div>
 <div>
     <button type="submit">Stwórz</button>
