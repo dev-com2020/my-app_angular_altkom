@@ -9,6 +9,10 @@ import { productDetailResolver } from './products/product-detail.resolver';
 export const routes: Routes = [
     { path: 'cart', component: CartComponent, canActivate: [authGuard] },
     {
+        path: 'about',
+        loadChildren: () => import('./about/about.module').then(m => m.AboutModule)
+    },
+    {
         path: 'products', component: ProductListComponent,
         // children: [
         //     { path: ':id', component: ProductDetailComponent }
