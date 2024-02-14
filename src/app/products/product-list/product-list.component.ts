@@ -8,11 +8,12 @@ import { FavoritesComponent } from '../favorites/favorites.component';
 import { ProductViewComponent } from '../product-view/product-view.component';
 import { Subscription, Observable } from 'rxjs';
 import { ProductCreateComponent } from '../product-create/product-create.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-product-list',
   standalone: true,
-  imports: [ProductDetailComponent, CommonModule, SortPipe, 
+  imports: [ProductDetailComponent, CommonModule, SortPipe, RouterLink, 
     FavoritesComponent, ProductViewComponent, ProductCreateComponent],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.css',

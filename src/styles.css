@@ -27,3 +27,17 @@ label {
     margin-bottom: 4px;
     display: block;
 }
+
+a {
+    color:chocolate;
+    text-decoration: none;
+    margin: 5px;
+}
+
+a:hover {
+    opacity: 0.8;
+}
+
+.active {
+    color: brown;
+}

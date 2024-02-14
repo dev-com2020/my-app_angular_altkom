@@ -5,10 +5,11 @@ import {
   SimpleChanges
 } from '@angular/core';
 import { Product } from '../product';
-import { Observable } from 'rxjs';
+import { Observable, switchMap } from 'rxjs';
 import { ProductsService } from '../products.service';
 import { AuthComponent } from '../../auth/auth/auth.component';
 import { AuthService } from '../../auth/auth.service';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -27,12 +28,17 @@ export class ProductDetailComponent implements OnInit, OnChanges {
   @Output() bought = new EventEmitter<string>();
   product$: Observable<Product> | undefined
 
-  constructor(private productService: ProductsService) {
+  constructor(private productService: ProductsService,private route: ActivatedRoute) {
     // console.log(`Name is ${this.product?.name} in the constructor`)
   }
 
   ngOnInit(): void {
     // console.log(`Name is ${this.product?.name} in the ngOnInit`)
+    this.product$ = this.route.paramMap.pipe(
+      switchMap(params => {
+        return this.productService.getProduct(Number(params.get('id')))
+      })
+    )
   }
 
   ngOnChanges(): void {

@@ -1,5 +1,11 @@
 <!-- {{title}} -->
 <!-- <app-auth></app-auth> -->
+<nav>
+    <a routerLink="/" routerLinkActive="active">Strona główna</a>
+    <a routerLink="/cart" routerLinkActive="active">Koszyk</a>
+    <!-- <a [routerLink]="['/cart']"></a> -->
+</nav>
+<router-outlet></router-outlet>
 <app-product-list></app-product-list>
 <!-- <input appNumeric/> -->
 <!-- <div>

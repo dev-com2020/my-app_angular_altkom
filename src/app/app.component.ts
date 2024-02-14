@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { ProductListComponent } from './products/product-list/product-list.component';
 import { CopyrightDirective } from './copyright.directive';
 import { NumericDirective } from './numeric.directive';
@@ -12,7 +12,7 @@ import { AuthComponent } from './auth/auth/auth.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ProductListComponent, 
+  imports: [RouterOutlet, ProductListComponent, RouterLink, RouterLinkActive,
     CopyrightDirective, NumericDirective, KeyLoggerComponent, HttpClientModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
