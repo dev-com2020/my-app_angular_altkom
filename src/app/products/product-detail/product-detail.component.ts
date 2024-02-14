@@ -7,12 +7,14 @@ import {
 import { Product } from '../product';
 import { Observable } from 'rxjs';
 import { ProductsService } from '../products.service';
+import { AuthComponent } from '../../auth/auth/auth.component';
+import { AuthService } from '../../auth/auth.service';
 
 
 @Component({
   selector: 'app-product-detail',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, AuthComponent],
   templateUrl: './product-detail.component.html',
   styleUrl: './product-detail.component.css',
   // encapsulation: ViewEncapsulation.None,

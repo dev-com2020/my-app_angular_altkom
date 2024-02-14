@@ -6,6 +6,7 @@ import { NumericDirective } from './numeric.directive';
 import { Observable, from, of } from 'rxjs';
 import { KeyLoggerComponent } from './key-logger/key-logger.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthComponent } from './auth/auth/auth.component';
 
 
 @Component({
